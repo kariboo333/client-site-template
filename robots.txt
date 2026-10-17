@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /offers
+
+Sitemap: https://[[DOMAIN]]/sitemap.xml
