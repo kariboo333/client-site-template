@@ -22,7 +22,7 @@ flowchart TD
 | 3 | Claude: claude.ai | A paid plan that includes Claude Code (Pro or above) |
 | 4 | Intake answers and photos | See `INTAKE.md` |
 
-## On the call (the client shares their screen and clicks; you guide)
+## Route A: client creates their own copy on the call (the client shares their screen and clicks; you guide)
 
 | # | Step | Where | Time |
 |---|---|---|---|
@@ -37,13 +37,20 @@ flowchart TD
 
 If the domain is still waiting to switch over, end the call after step 5. The `.workers.dev` preview works immediately, and step 6 can finish by email.
 
-## Alternative: build first, hand over after
+## Route B (Karina's usual route): build first, hand over after
 
-Use this when you want to build before involving the client.
+Use this when you build the site yourself and the client only joins for the handover.
 
-1. Click **Use this template** on your own account to create `client-name-site`, and build it with Claude.
-2. When it's ready: **Settings → General → Danger zone → Transfer ownership** → enter the client's GitHub username. They accept by email.
-3. On the call, the client does steps 2, 3, 5 and 6 above on their own accounts.
+| # | Step | Where |
+|---|---|---|
+| 1 | Send the client their questionnaire. They create GitHub, Cloudflare and Claude accounts, and send you their GitHub username. | Client doc |
+| 2 | On **your** GitHub: open this template → **Use this template → Create a new repository** → name it after the client (e.g. `wine-and-sound-site`) → **Private** | github.com/kariboo333/client-site-template |
+| 3 | Add the new repository to the Claude GitHub app | github.com/settings/installations → Claude → Configure |
+| 4 | Start a Claude Code session on it, paste their answers and photos: "Fill in this website from the client's answers, following CLAUDE.md." | claude.ai/code |
+| 5 | For a preview link, connect it to **your** Cloudflare: Workers & Pages → Create → Import a repository. Send the client the `.workers.dev` link for review. | dash.cloudflare.com |
+| 6 | **Handover call.** Repository **Settings → General → Danger zone → Transfer ownership** → the client's GitHub username. They accept by email. | GitHub |
+| 7 | The client installs the Claude GitHub app on the repository, connects it in **their** Cloudflare (Import a repository → Deploy), and adds their domain | Client's screen |
+| 8 | Delete your preview Worker in your Cloudflare. The client makes a first edit in their own Claude. | Both |
 
 ## After launch
 
